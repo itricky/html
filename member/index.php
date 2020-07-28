@@ -81,14 +81,13 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
       <div style="float:left;"><a href="../index.html">回首頁</a></div>
       <div style="float:right;"><a href="member_join.php">申請會員</a></div>
       </p>
-
       <?php if(isset($_GET["errMsg"]) && ($_GET["errMsg"]=="1")){?>
-          <div style="color:#D68B00;padding:10px;"> 
+        <br><div style="color:#D68B00;padding:10px; text-align: center;"> 
             登入帳號或密碼錯誤！
           </div>
       <?php }?>
       
-      <p class="mt-5 mb-3 text-muted">&copy; 2020-2020</p>
+      <!-- <p class="mt-5 mb-3 text-muted">&copy; 2020-2020</p> -->
     </form>
   </body>
 </html>
