@@ -34,15 +34,14 @@ if(isset($_POST["username"]) && isset($_POST["passwd"])){
         }
     }
     if($_SESSION["memberLevel"]=="member"){
-      header("Location:member_center.php");
+      header("Location: /member_center.php");
     }else{
-      header("Location:member_admin.php");
+      header("Location: /member_admin.php");
     }
   }else{
     header("Location: index.php?errMsg=1");
   }
 }
-
 ?>
 <html>
   <head>
