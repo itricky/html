@@ -29,10 +29,10 @@
   $stmt->fetch();
   $stmt->close();
   
-  $pageRow_records = 4;
+  $pageRow_records = 10;
   $num_pages = 1;
   if (isset($_GET['page'])){
-      $num_pages = $_GET['page'];
+    $num_pages = $_GET['page'];
   }
   
   $startRow_records = ($num_pages -1) * $pageRow_records;
@@ -46,20 +46,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="refresh" content="10" />
+<!-- <meta http-equiv="refresh" content="1" /> -->
 <title>網站會員系統</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <style>
     .title {
         font-family: "微軟正黑體";
-        font-size: 24pt;
-        font-weight: bolder;
+        font-size: 20pt;
+        font-weight: normal;
         color: red;
+    }
+    a {
+        text-decoration:none;
     }
 </style>
 <script>
 function deletesure(){
-    if(confirm('\n您確認要刪除這個會員嗎？\n刪除後無法恢復！\n'))
+    if (confirm('\n您確認要刪除這個會員嗎？\n刪除後無法恢復！\n'))
+    return true;
     return false;
 }
 </script>
@@ -70,7 +74,7 @@ function deletesure(){
 
 <tr>
     <td class="title">
-            <p>會員資料列表</p>
+        <p>會員資料列表</p>
     </td>
 </tr>
 <tr>
@@ -85,7 +89,7 @@ function deletesure(){
             <th width="10%" bgcolor="#CCCCCC"><p>登入</p></th>
         </tr>
 
-    <?php while($row_RecMember=$RecMember->fetch_assoc()){ ?>
+    <?php while($row_RecMember=$RecMember->fetch_assoc()){ ;?>
         <tr>
             <td width="10%" align="center" bgcolor="#FFFFFF">
                 <p>
@@ -95,29 +99,31 @@ function deletesure(){
                 </p>
             </td>
             <td width="20%" align="center" bgcolor="#FFFFFF">
-                <p><?php echo $row_RecMember["m_name"]; ?></p>
+                <p><?php echo $row_RecMember["m_name"];?></p>
             </td>
             <td width="20%" align="center" bgcolor="#FFFFFF">
-                <p><?php echo $row_RecMember["m_username"]; ?></p>
+                <p><?php echo $row_RecMember["m_username"];?></p>
             </td>
             <td width="20%" align="center" bgcolor="#FFFFFF">
-                <p><?php echo $row_RecMember["m_jointime"]; ?></p>
+                <p><?php echo $row_RecMember["m_jointime"];?></p>
             </td>
             <td width="20%" align="center" bgcolor="#FFFFFF">
-                <p><?php echo $row_RecMember["m_logintime"]; ?></p>
+                <p><?php echo $row_RecMember["m_logintime"];?></p>
             </td>
             <td width="10%" align="center" bgcolor="#FFFFFF">
-                <p><?php echo $row_RecMember["m_login"]; ?></p>
+                <p><?php echo $row_RecMember["m_login"];?></p>
             </td>
         </tr>
-    <?php }?>
+    <?php };?>
     </table>
     <p>&nbsp;</p>
     <hr>
     <table width="100%" align="center" cellpadding="3" cellspacing="0">
         <tr>
             <td valign="middle">
-                <p>總共筆數:<?php echo $total_records;?></p>
+                <p>總共筆數:<?php echo $total_records;?> &nbsp;
+                    <a href="?logout=true">登出系統</a>
+                </p>
             </td>
             <td align="right">
                 <?php if ($num_pages > 1) { ;?>
