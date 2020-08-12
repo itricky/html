@@ -71,14 +71,21 @@
 <!-- <meta http-equiv="refresh" content="1" /> -->
 <title>會員資料</title>
 <style type="text/css">
-    .title { font-family: "微軟正黑體"; }
-    .heading {font-family: "微軟正黑體"; }
+    .title {
+        width:50%; 
+        height:80px; 
+        float:left; 
+        display:inline;
+    }
+    
     .passwd_span{
         font-size: 12pt;
         color: #999999;
         font-family:Georgia, "Times New Roman", Times, serif;
         vertical-align: middle;
     }
+    
+
 </style>
 <script language="javascript">
     function checkForm(){
@@ -144,8 +151,7 @@
   </script>
 <?php }?>
 
-<table width="780" border="0" align="center" cellpadding="4" cellspacing="0">
-
+<table width="800" border="0" align="center" cellpadding="4" cellspacing="0">
   <tr>
 
     <td>
@@ -154,7 +160,14 @@
 
       <tr valign="top">
         <td><form action="" method="POST" name="formJoin" id="formJoin" onSubmit="return checkForm();">
-          <p size="10" style="color:red; font-size:25px;">會員資料修改</p>
+
+          <div class="title">
+            <p  style="color:red; font-size:25px; ">會員資料修改</p>
+          </div>
+          <div class="title">
+            <p style="line-height:60px; text-align:right;">管理者：<?php echo $_SESSION["loginMember"] ;?></p>
+          </div>
+          
           <div>
             <hr size="1" />
             <p><strong>帳號資料</strong>：<?php echo $row_RecMember["m_username"];?></p>

@@ -51,10 +51,10 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 <style>
     .title {
-        font-family: "微軟正黑體";
-        font-size: 20pt;
-        font-weight: normal;
-        color: red;
+        width:50%; 
+        height:80px; 
+        float:left; 
+        display:inline;
     }
     a {
         text-decoration:none;
@@ -73,8 +73,13 @@ function deletesure(){
 <table width="800" border="0" align="center" cellpadding="4" cellspacing="0">
 
 <tr>
-    <td class="title">
-        <p>會員資料列表</p>
+    <td>
+        <div class="title">
+            <p  style="color:red; font-size:25px; ">會員資料列表</p>
+          </div>
+        <div class="title">
+            <p style="line-height:60px; text-align:right;">管理者：<?php echo $_SESSION["loginMember"] ;?></p>
+        </div>
     </td>
 </tr>
 <tr>
