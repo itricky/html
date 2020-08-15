@@ -21,7 +21,8 @@ if(isset($_POST["action"])&&($_POST["action"]=="join")){
 	require_once("conndb.php");
 	$query_RecFindUser = "SELECT m_username FROM memberdata WHERE m_username='{$_POST["m_username"]}'";
 	$RecFindUser=$db_link->query($query_RecFindUser);
-	if ($RecFindUser->num_rows>0){
+	$num_rows = mysqli_num_rows($RecFindUser);
+	if ($num_rows>0){
 		header("Location: member_join.php?errMsg=1&username={$_POST["m_username"]}");
 	}else{	
 		$query_insert = "INSERT INTO memberdata (m_name, m_username, m_passwd, m_sex, m_birthday, m_email, m_url, m_phone, m_address, m_jointime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";

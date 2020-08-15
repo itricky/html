@@ -2,23 +2,24 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 CREATE TABLE `memberdata` (
-  `id` int(11) NOT NULL,
-  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `passwd` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `sex` enum('男','女') COLLATE utf8_unicode_ci NOT NULL,
-  `birthday` date DEFAULT NULL,
-  `level` enum('admin','member') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'member',
-  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `url` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `login` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `logintime` datetime DEFAULT NULL,
-  `jointime` datetime NOT NULL
+  `m_id` int(11) NOT NULL,
+  `m_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `m_username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `m_passwd` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `m_sex` enum('男','女') COLLATE utf8_unicode_ci NOT NULL,
+  `m_birthday` date DEFAULT NULL,
+  `m_level` enum('admin','member') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'member',
+  `m_email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `m_url` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `m_phone` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `m_address` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `m_login` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `m_logintime` datetime DEFAULT NULL,
+  `m_jointime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `memberdata` (`id`, `name`, `username`, `passwd`, `sex`, `birthday`, `level`, `email`, `url`, `phone`, `address`, `login`, `logintime`, `jointime`) VALUES
+
+INSERT INTO `memberdata` (`m_id`, `m_name`, `m_username`, `m_passwd`, `m_sex`, `m_birthday`, `m_level`, `m_email`, `m_url`, `m_phone`, `m_address`, `m_login`, `m_logintime`, `m_jointime`) VALUES
 (1, '系統管理員', 'admin', '$2y$10$FO70lc.3/vTeE0Vaf7O3Jes.UArylzLnnxfZffTF7410vndnvhScm', '男', NULL, 'admin', NULL, NULL, NULL, NULL, 22, '2016-09-10 11:36:30', '2008-10-20 16:36:15'),
 (2, '張惠玲', 'elven', '$2y$10$YdUhOvUTvwK5oWp/i3LafOd2ImwsE/85YmmoY2konsxdmMSsvczFO', '女', '1987-04-05', 'member', 'elven@superstar.com', '', '0966765556', '台北市濟洲北路12號2樓', 12, '2016-08-29 11:44:33', '2008-10-21 12:03:12'),
 (3, '彭建志', 'jinglun', '$2y$10$WqB2bnMSO/wgBiHSOBV2iuLbrUCsp8VmNJdK2AyIW6IANUL9jeFjC', '男', '1987-07-01', 'member', 'jinglun@superstar.com', '', '0918181111', '台北市敦化南路93號5樓', 0, NULL, '2008-10-21 12:06:08'),
@@ -32,10 +33,9 @@ INSERT INTO `memberdata` (`id`, `name`, `username`, `passwd`, `sex`, `birthday`,
 (11, '陳燕博', 'albert', '$2y$10$seMLwqcQRQiWa0jMBAcMMertjLbrPLRGNZoKc0NZ5FxTwWha7W3lm', '男', '1993-08-10', 'member', 'albert@superstar.com', NULL, '0918976588', '台北市北環路2巷80號', 0, NULL, '2008-10-21 12:06:08'),
 (13, '黃信溢', 'dkdreamer', '$2y$10$Fx0rLJtV5mVtJzAJ52B/hup1AmviTe7Ciu0mtWBCZAkYC0qmg6OJy', '女', '1987-04-05', 'member', 'edreamer@gmail.com', '', '955648889', '愛蘭里梅村路213巷8號', 1, '2016-08-29 17:42:24', '2016-08-29 17:41:46');
 
+ALTER TABLE `memberdata`
+  ADD PRIMARY KEY (`m_id`),
+  ADD UNIQUE KEY `m_username` (`m_username`);
 
 ALTER TABLE `memberdata`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
-
-ALTER TABLE `memberdata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
